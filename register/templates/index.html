@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Antic' rel='stylesheet'>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>MiniRegister</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Mini Registration and Login</h1>
+        <div class="col-sm-5" id="register">
+            <h2>Registration</h2>
+            <form action='/add' method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.as_p }}
+                    <button type="submit">Register</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-5" id="login">
+            <h2>Log In</h2>
+            <form action='/login' method='POST'>
+                {% csrf_token %}
+                <div class="form-group">
+                    {{logform.as_p}}
+                    <button type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</head>
